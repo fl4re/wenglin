@@ -11,7 +11,7 @@
   },
   "name": "wenglin",
   "version": "1.0.0",
-  "description": "Weng lin skill algorithm implementation",
+  "description": "Weng-Lin skill algorithm implementation",
   "main": "index.js",
   "directories": {
     "test": "test"
