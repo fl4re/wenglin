@@ -4,7 +4,6 @@
   },
   "devDependencies": {
     "eslint": "^7.5.0",
-    "eslint-plugin-react": "^7.20.5",
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
     "nyc": "^15.0.0"
