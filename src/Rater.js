@@ -15,7 +15,7 @@ const score = function score(q, i) {
 module.exports = function(beta = BETA) {
   const beta_sq = beta * beta;
 
-  return function (teams) {
+  return function (...teams) {
     teams.forEach(team_1 => {
       teams.forEach(team_2 => {
         if (team_1 == team_2) return;

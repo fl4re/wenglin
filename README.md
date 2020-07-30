@@ -29,13 +29,10 @@ Players are initialized with **mu** and **sigma** square, by default **25** and 
 
 ```js
 // Define two teams of two players each with default mu and sigma values. Also set team score.
-const teams = [  
-  new Team({players: [new Player(), new Player()], score: 60}),  
-  new Team({players: [new Player(), new Player()], score: 75})  
-];
+const team_1 = new Team({players: [new Player(), new Player()], score: 60});
+const team_2 = new Team({players: [new Player(), new Player()], score: 80});
 
-
-const players = Rater()(teams);
+const players = Rater()(team_1, team_2);
 ```
 
 ## Results
