@@ -53,6 +53,6 @@ players = [
 
 Player can also be initialized with custom mu and sigma values
 ```js
-const player = new Player(40, 73.25);
+const player = new Player({mu: 40, sigma: 73.25});
 ...
 ```

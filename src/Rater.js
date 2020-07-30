@@ -34,12 +34,11 @@ module.exports = function(beta = BETA) {
 
     return teams.reduce((result, team) => {
       const team_result = team.players().reduce((players, player) => {
-        let new_mu = player.mu() + (player.sigma_sq() / team.sigma_sq()) * team.omega();
+        let mu = player.mu() + (player.sigma_sq() / team.sigma_sq()) * team.omega();
         let sigma_adj = 1.0 - (player.sigma_sq() / team.sigma_sq()) * team.delta();
-        const new_sigma_sq = player.sigma_sq() * Math.max(sigma_adj, EPSILON);
-        const updated_player = new Player(new_mu, Math.sqrt(new_sigma_sq));
+        const sigma = Math.sqrt(player.sigma_sq() * Math.max(sigma_adj, EPSILON));
 
-        return [...players, updated_player];
+        return [...players, new Player({mu, sigma})];
       }, []);
       return [...result, team_result];
     }, []);
