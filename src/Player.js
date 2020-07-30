@@ -2,26 +2,30 @@
 
 const {
   MU,
-  SIGMA_SQUARE,
+  SIGMA
 } = require('./constants');
 
 class Player {
-  constructor(mu, sigma_sq) {
-    this.mu = mu || MU;
-    this.sigma_sq = sigma_sq || SIGMA_SQUARE;
-    this.sigma = Math.sqrt(this.sigma_sq);
-  }
-
-  static from_rating(rating) {
-    return new Player(rating.mu, rating.sigma_sq);
+  constructor(mu, sigma) {
+    this._mu = mu || MU;
+    this._sigma = sigma || SIGMA;
+    this._sigma_sq = this._sigma * this._sigma;
   }
 
   mu () {
-    return this.mu;
+    return this._mu;
   }
 
   sigma_sq () {
-    return this.sigma_sq;
+    return this._sigma_sq;
+  }
+
+  skill () {
+    return {
+      mu: this._mu,
+      sigma_sq: this._sigma_sq,
+      sigma: this._sigma,
+    };
   }
 }
 
