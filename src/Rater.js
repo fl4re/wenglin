@@ -33,14 +33,14 @@ module.exports = function(beta = BETA) {
     });
 
     return teams.reduce((result, team) => {
-      const team_result = team.players().reduce((players, player) => {
+      const team_result = team.players().map(player => {
         let mu = player.mu() + (player.sigma_sq() / team.sigma_sq()) * team.omega();
         let sigma_adj = 1.0 - (player.sigma_sq() / team.sigma_sq()) * team.delta();
         const sigma = Math.sqrt(player.sigma_sq() * Math.max(sigma_adj, EPSILON));
 
-        return [...players, new Player({mu, sigma})];
+        return new Player({mu, sigma, ref: player.ref()});
       }, []);
-      return [...result, team_result];
+      return [...result, ...team_result];
     }, []);
   };
 };
