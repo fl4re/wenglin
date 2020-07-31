@@ -6,10 +6,11 @@ const {
 } = require('./constants');
 
 class Player {
-  constructor({mu, sigma} = {}) {
+  constructor({mu, sigma, ref} = {}) {
     this._mu = mu || MU;
     this._sigma = sigma || SIGMA;
     this._sigma_sq = this._sigma * this._sigma;
+    this._ref = ref;
   }
 
   mu () {
@@ -26,6 +27,10 @@ class Player {
       sigma_sq: this._sigma_sq,
       sigma: this._sigma,
     };
+  }
+
+  ref () {
+    return this._ref;
   }
 }
 
