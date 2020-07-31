@@ -5,8 +5,7 @@ const {expect} = require('chai');
 const Player = require('../src/Player');
 const {
   MU,
-  SIGMA,
-  SIGMA_SQUARE
+  SIGMA
 } = require('../src/constants');
 
 describe('Player', function () {
@@ -15,9 +14,9 @@ describe('Player', function () {
     const player = new Player();
 
     expect(player.skill()).to.be.deep.equal({
-      mu:MU,
+      mu: MU,
       sigma: SIGMA,
-      sigma_sq: SIGMA_SQUARE
+      sigma_sq: SIGMA * SIGMA
     });
 
   });
